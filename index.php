@@ -1,4 +1,5 @@
 <?php
+require_once 'config.php';
 ?>
 
 <!DOCTYPE html>
@@ -8,9 +9,11 @@
     <title>Bangun Citra Data</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <style>
         /* Header */
-        .header {
+        .header {~
             display: row;
         }
 
@@ -73,6 +76,11 @@
             height: auto;
         }
 
+        .carousel-inner .carousel-item {
+            transition: transform 0.6s ease-in-out; // Menambah transisi yang lebih halus
+        }
+
+
         /* Kontainer Produk */
         .product-carousel {
             background-color: #001f3f; /* Biru dongker, seperti header baris kedua */
@@ -128,6 +136,14 @@
             font-size: 0.8em;
             color: white; /* Teks putih */
         }
+
+        @media (max-width: 768px) {
+            /* Penyesuaian untuk layar kecil, misalnya, pada perangkat mobile */
+            .carousel-item img {
+                max-width: 100%; /* Pastikan gambar menggunakan lebar penuh pada perangkat kecil */
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -135,104 +151,125 @@
 <!-- Header -->
 <div class="header">
     <div class="header-top">
-        <div class="website-name" style="padding: 10px 20px">
+        <div class="website-name" style="padding: 10px 20px;">
             <h1>Bangun Citra Data</h1>
         </div>
-        <div class="location-info" style="padding: 10px 20px;">
-            <i class="fas fa-map-marker-alt"></i> Purwokerto, Banyumas
+        <div class="location-info" style="padding: 10px 20px; display: flex; align-items: center;">
+            <i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i> Purwokerto, Banyumas
+            <!-- Garis pemisah vertikal -->
+            <div style="border-left: 2px solid #ccc; height: 25px; margin: 0 15px;"></div>
+            <!-- Ikon Profil -->
+            <i class="fas fa-user-circle" style="font-size: 24px;"></i>
         </div>
     </div>
 
-    <div class="header-bottom">
+    <div class="header-bottom" style="display: flex; justify-content: space-between; align-items: center;">
         <div class="header-menu" style="padding-left: 20px;">
             <a href="#home">Beranda</a>
             <a href="#produk">Produk</a>
             <a href="#tentang">Tentang</a>
         </div>
-        <div class="header-send-message" style="padding-right: 20px;">
-            <a href="https://api.whatsapp.com/send?phone=6281391188327" target="_blank"><i class="fab fa-whatsapp"></i> Send Message</a>
+        
+        <!-- Kontainer untuk Send Message -->
+        <div class="header-send-message" style="padding: 10px 20px; background-color: red; display: flex; align-items: center;">
+            <a href="https://api.whatsapp.com/send?phone=6281391188327" target="_blank" style="color: white; text-decoration: none;">
+                <i class="fab fa-whatsapp"></i> Send Message
+            </a>
         </div>
     </div>
 </div>
 
 <!-- Carousel -->
-<div id="mainCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
+<div id="mainCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indikator Carousel -->
+    <ol class="carousel-indicators">
+        <?php
+        // Mengambil data gambar dari database
+        $stmt = $pdo->prepare("SELECT * FROM cover");
+        $stmt->execute();
+        $carousel_items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $is_first = true;
+        $active_class = $is_first ? 'active' : '';
+
+        // Membuat indikator berdasarkan jumlah item dalam database
+        $index = 0;
+        foreach ($carousel_items as $item) {
+            $active = ($index === 0) ? 'class="active"' : ''; // Menandai item pertama sebagai aktif
+            echo "<li data-target='#mainCarousel' data-slide-to='$index' $active></li>";
+            $index++;
+        }
+        ?>
+    </ol>
+
+    <!-- Konten Carousel -->
     <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="https://via.placeholder.com/1200x400" alt="Gambar 1">
-        </div>
-        <div class="carousel-item">
-            <img src="https://via.placeholder.com/1200x400?text=Gambar+2" alt="Gambar 2">
-        </div>
-        <div class="carousel-item">
-            <img src="https://via.placeholder.com/1200x400?text=Gambar+3" alt="Gambar 3">
-        </div>
+        <?php
+        foreach ($carousel_items as $item) {
+            $active_class = $is_first ? 'active' : '';
+            $is_first = false;
+            
+            $image_path = htmlspecialchars($item['image_path']); // Jalur gambar
+            $alt_text = htmlspecialchars($item['alt_text'] ?? ''); // Teks alternatif
+            
+            echo "<div class='carousel-item $active_class'>";
+            echo "<img src='$image_path' alt='$alt_text'>";
+            // echo "<img src='$image_path' alt='$alt_text' style='max-width: 80%; height: auto; display: flex; margin: auto;'>";
+            echo "</div>";
+        }
+        ?>
     </div>
-
-    <a class="carousel-control-prev" href="#mainCarousel" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-
-    <a class="carousel-control-next" href="#mainCarousel" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
 </div>
 
 <!-- Kontainer Produk -->
 <div class="product-carousel">
     <h2 class="text-center">Produk yang Kami Tawarkan</h2>
-    <div class="carousel slide" id="productCarousel" data-ride="carousel" data-interval="5000">
+    <div class="carousel slide" id="productCarousel" data-bs-ride="carousel" data-bs-interval="5000" data-bs-wrap="true">
         <div class="container carousel-inner">
-            <div class="carousel-item active">
-                <div class="row">
-                    <div class="col text-center">
-                        <img src="https://via.placeholder.com/200x200" alt="Produk 1">
-                        <h5>Produk 1</h5>
-                    </div>
-                    <div class="col text-center">
-                        <img src="https://via.placeholder.com/200x200" alt="Produk 2">
-                        <h5>Produk 2</h5>
-                    </div>
-                    <div class="col text-center">
-                        <img src="https://via.placeholder.com/200x200" alt="Produk 3">
-                        <h5>Produk 3</h5>
-                    </div>
-                </div>
-            </div>
+            <?php
+            // Mengambil data gambar dari tabel 'products'
+            $stmt = $pdo->prepare("SELECT * FROM products");
+            $stmt->execute();
+            $product_images = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-            <!-- Item Kedua untuk Produk Carousel -->
-            <div class="carousel-item">
-                <div class="row">
-                    <div class="col text-center">
-                        <img src="https://via.placeholder.com/200x200" alt="Produk 4">
-                        <h5>Produk 4</h5>
-                    </div>
-                    <div class="col text-center">
-                        <img src="https://via.placeholder.com/200x200" alt="Produk 5">
-                        <h5>Produk 5</h5>
-                    </div>
-                    <div class="col text-center">
-                        <img src="https://via.placeholder.com/200x200" alt="Produk 6">
-                        <h5>Produk 6</h5>
-                    </div>
-                </div>
-            </div>
+            // Memisahkan data ke dalam kelompok-kelompok berisi 3 produk
+            $chunks = array_chunk($product_images, 3);
+
+            // Looping untuk membuat setiap slide dalam carousel
+            foreach ($chunks as $index => $chunk) {
+                $active_class = ($index === 0) ? 'active' : ''; // Tandai slide pertama sebagai aktif
+                
+                echo "<div class='carousel-item $active_class'><div class='row'>";
+                
+                foreach ($chunk as $image) {
+                    $image_path = htmlspecialchars($image['image_path']);
+                    $alt_text = htmlspecialchars($image['alt_text'] ?? '');
+                    $product_name = htmlspecialchars($image['image_name']);
+                    
+                    echo "<div class='col text-center'>";
+                    echo "<img src='$image_path' alt='$alt_text' style='max-width: 200px; height: auto;'>";
+                    echo "<h5>$product_name</h5>";
+                    echo "</div>";
+                }
+                
+                echo '</div></div>'; // Tutup carousel-item dan baris
+            }
+            ?>
         </div>
 
         <!-- Kontrol Carousel -->
-        <a class="carousel-control-prev" href="#productCarousel" role="button" data-slide="prev">
+        <a class="carousel-control-prev" href="#productCarousel" role="button" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
+            <span class="visually-hidden">Previous</span>
         </a>
 
-        <a class="carousel-control-next" href="#productCarousel" role="button" data-slide="next">
+        <a class="carousel-control-next" href="#productCarousel" role="button" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
+            <span class="visually-hidden">Next</span>
         </a>
     </div>
 </div>
+
 
 <!-- Kontainer Map dan Promosi -->
 <div class="container mt-4">
@@ -257,7 +294,7 @@
     <div class="footer-content">
         <!-- Bagian Logo -->
         <div>
-            <img src="https://via.placeholder.com/350x100" alt="Brand Logo">
+            <img src="global/img/logo.png" alt="Brand Logo" style="width: 250px; height: 100px;">
         </div>
 
         <!-- Bagian Jam Operasional -->
@@ -301,5 +338,17 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+
+<!-- Menonaktifkan Pause pada Carousel -->
+<script>
+$(document).ready(function() {
+    $('#mainCarousel').carousel({
+        interval: 3000, // Interval 5 detik
+        pause: false // Matikan pause saat kursor berada di atas carousel
+    });
+});
+</script>
 </body>
 </html>
