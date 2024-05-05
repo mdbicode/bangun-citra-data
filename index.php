@@ -13,7 +13,7 @@ require_once 'config.php';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <style>
         /* Header */
-        .header {~
+        .header {
             display: row;
         }
 
@@ -73,11 +73,11 @@ require_once 'config.php';
         /* Carousel */
         .carousel-item img {
             width: 100%;
-            height: auto;
+            height: 650px;
         }
 
         .carousel-inner .carousel-item {
-            transition: transform 0.6s ease-in-out; // Menambah transisi yang lebih halus
+            transition: transform 0.6s ease-in-out; /* Menambah transisi yang lebih halus */
         }
 
 
@@ -88,6 +88,9 @@ require_once 'config.php';
             padding: 20px; /* Padding untuk konten */
         }
 
+        .product-carousel .carousel-inner{
+            margin-top: 6%;
+        }
         /* Kontainer Map dan sejajarnya */
         .map-container {
             height: 300px;
@@ -97,11 +100,18 @@ require_once 'config.php';
             background-color: white; /* Latar belakang putih */
         }
 
+        .normalHeight{
+            padding-top: 60px;
+            width: 100%;
+            height: 600px;
+        }
+
         /* Footer */
         .footer {
             background-color: black; /* Latar belakang hitam */
-            padding: 20px;
+            padding: 60px;
             border-top: 1px solid #ddd;
+            height: 300px;
         }
 
         .footer-content {
@@ -159,7 +169,7 @@ require_once 'config.php';
             <!-- Garis pemisah vertikal -->
             <div style="border-left: 2px solid #ccc; height: 25px; margin: 0 15px;"></div>
             <!-- Ikon Profil -->
-            <i class="fas fa-user-circle" style="font-size: 24px;"></i>
+            <a href="admin"><i class="fas fa-user-circle" style="font-size: 24px;"></i></a>
         </div>
     </div>
 
@@ -171,7 +181,7 @@ require_once 'config.php';
         </div>
         
         <!-- Kontainer untuk Send Message -->
-        <div class="header-send-message" style="padding: 10px 20px; background-color: red; display: flex; align-items: center;">
+        <div class="header-send-message" style="padding: 10px 20px; background-color: red; display: flex; align-items: center; margin-right:20px;    ">
             <a href="https://api.whatsapp.com/send?phone=6281391188327" target="_blank" style="color: white; text-decoration: none;">
                 <i class="fab fa-whatsapp"></i> Send Message
             </a>
@@ -222,7 +232,7 @@ require_once 'config.php';
 </div>
 
 <!-- Kontainer Produk -->
-<div class="product-carousel">
+<div class="product-carousel normalHeight">
     <h2 class="text-center">Produk yang Kami Tawarkan</h2>
     <div class="carousel slide" id="productCarousel" data-bs-ride="carousel" data-bs-interval="5000" data-bs-wrap="true">
         <div class="container carousel-inner">
@@ -272,11 +282,11 @@ require_once 'config.php';
 
 
 <!-- Kontainer Map dan Promosi -->
-<div class="container mt-4">
+<div class="container mt-4 normalHeight">
     <div class="row text-center">
         <div class="col-lg-6">
             <h2>Dapatkan Harga Spesial Sekarang Juga!</h2>
-            <a href="https://api.whatsapp.com/send?phone=6281391188327" target="_blank" class="btn btn-success"><i class="fas fa-shopping-cart"></i> Order Now</a>
+            <a href="https://api.whatsapp.com/send?phone=6281391188327" target="_blank" class="btn btn-success mt-4 w-75"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</a>
         </div>
         <div class="col-lg-6">
             <div class="map-container">

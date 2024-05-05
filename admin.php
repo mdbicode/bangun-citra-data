@@ -1,5 +1,6 @@
 <?php
 require 'config.php'; // Koneksi ke database
+require 'check-login.php'; // Koneksi ke user
 require 'functions.php'; // Fungsi CRUD database
 ?>
 
