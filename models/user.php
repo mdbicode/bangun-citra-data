@@ -2,7 +2,7 @@
 require_once 'config.php'; // Koneksi ke database
 
 // Fungsi untuk mengunggah file
-function uploadImage($file, $directory = "uploads/") {
+function uploadImage($file, $directory = "global/img/uploads") {
     $target_dir = $directory; // Direktori tempat gambar akan disimpan
     $target_file = $target_dir . basename($file["name"]);
     $upload_ok = 1;
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_cover'])) {
     $image_name = sanitizeInput($_POST['image_name']);
     $alt_text = sanitizeInput($_POST['alt_text'] ?? null);
     $description = sanitizeInput($_POST['description'] ?? null);
-    $image_path = uploadImage($_FILES['image'], "uploads/cover/");
+    $image_path = uploadImage($_FILES['image'], "global/img/uploads/carousel/");
 
     if ($image_path) {
         // Simpan ke database
@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_product'])) {
     $image_name = sanitizeInput($_POST['image_name']);
     $alt_text = sanitizeInput($_POST['alt_text'] ?? null);
     $description = sanitizeInput($_POST['description'] ?? null);
-    $image_path = uploadImage($_FILES['image'], "uploads/products/");
+    $image_path = uploadImage($_FILES['image'], "global/img/uploads/products/");
 
     if ($image_path) {
         // Simpan ke database

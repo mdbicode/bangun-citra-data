@@ -1,0 +1,17 @@
+/* Pengaturan untuk modal */
+.modal-body {
+    padding: 20px; /* Padding dalam modal */
+}
+
+.form-group {
+    padding: 5px;
+} 
+
+.modal-footer { 
+    background-color: #f1f1f1; /* Warna latar belakang untuk footer modal */
+    text-align: right; /* Footer rata kanan */
+}
+
+.modal-footer .btn {
+    margin-left: 10px; /* Jarak antar tombol di footer modal */
+}

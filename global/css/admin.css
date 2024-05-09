@@ -1,0 +1,95 @@
+/* Admin CSS */
+
+/* Kontainer Atas */
+.container-top {
+    display: flex;
+    justify-content: space-between; /* Posisi tombol logout di sebelah kanan */
+    align-items: center;
+    padding: 20px 0;
+}
+
+.container-top h2 {
+    margin: 0; /* Menghapus margin untuk heading */
+    color: #333; /* Warna teks */
+    font-weight: bold;
+}
+
+/* Kontainer Tengah */
+.container-middle {
+    margin-top: 50px;
+    align-items: center;
+}
+
+.heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-middle h3 {
+    color: #333; /* Warna teks */
+    display: inline-block; /* Menjaga posisi di sebelah kiri */
+}
+
+.container-middle .btn-primary {
+    /* Memberi jarak pada tombol */
+    padding: 8px 16px;
+}
+
+.table {
+    /* Mengubah tampilan tabel */
+    background-color: #f9f9f9; /* Latar belakang tabel */
+    border-radius: 10px; /* Membuat sudut tabel lebih halus */
+}
+
+.table th, .table td {
+    text-align: start; /* Teks di kiri */
+}
+
+.table th {
+    font-weight: bold; /* Memberi penekanan pada header tabel */
+}
+
+.table img {
+    max-width: 150px;
+    height: auto;
+}
+
+/* Kontainer Bawah */
+.container-bottom {
+    margin-top: 100px; /* Jarak antar kontainer */
+    align-items: center;
+}
+
+.container-bottom h3 {
+    color: #333; /* Warna teks */
+    display: inline-block; /* Menjaga posisi di sebelah kiri */
+}
+
+.container-bottom .btn-primary {
+    /* Memberi jarak pada tombol */
+    padding: 8px 16px;
+}
+
+/* Tombol Logout */
+.logout-form {
+    /* Memposisikan tombol logout di sebelah kanan */
+    display: inline-block; /* Agar tombol tidak meluber */
+}
+
+.logout-form button {
+    padding: 8px 16px; /* Menambahkan padding pada tombol */
+    color: #fff; /* Warna teks putih */
+    background-color: #6c757d; /* Warna tombol logout */
+    border: none; /* Menghilangkan border */
+    border-radius: 5px; /* Menambah border radius */
+    cursor: pointer; /* Menambahkan pointer untuk tombol */
+}
+
+.logout-form button:hover {
+    background-color: #5a6268; /* Warna tombol saat hover */
+}
+
+small {
+    font-size: 12px;
+}
