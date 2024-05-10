@@ -8,7 +8,7 @@ $query = "SELECT * FROM user WHERE username = :username";
 $stmt = $pdo->prepare($query);
 $stmt->bindParam(':username', $username);
 
-$username = 'banguncitradata80@gmail.com'; // Nama pengguna yang ingin dicek
+$username = 'banguncitradata'; // Nama pengguna yang ingin dicek
 $stmt->execute();
 
 $user = $stmt->fetch(PDO::FETCH_ASSOC);

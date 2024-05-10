@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 10 Bulan Mei 2024 pada 00.53
--- Versi server: 10.4.25-MariaDB
--- Versi PHP: 8.1.10
+-- Host: localhost:3306
+-- Generation Time: May 10, 2024 at 06:35 AM
+-- Server version: 8.0.30
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,19 +24,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `cover`
+-- Table structure for table `cover`
 --
 
 CREATE TABLE `cover` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `image_name` varchar(255) NOT NULL,
   `image_path` varchar(255) NOT NULL,
   `alt_text` varchar(255) DEFAULT NULL,
-  `description` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `description` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data untuk tabel `cover`
+-- Dumping data for table `cover`
 --
 
 INSERT INTO `cover` (`id`, `image_name`, `image_path`, `alt_text`, `description`) VALUES
@@ -48,19 +48,19 @@ INSERT INTO `cover` (`id`, `image_name`, `image_path`, `alt_text`, `description`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `products`
+-- Table structure for table `products`
 --
 
 CREATE TABLE `products` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `image_name` varchar(255) NOT NULL,
   `image_path` varchar(255) NOT NULL,
   `alt_text` varchar(255) DEFAULT NULL,
-  `description` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `description` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data untuk tabel `products`
+-- Dumping data for table `products`
 --
 
 INSERT INTO `products` (`id`, `image_name`, `image_path`, `alt_text`, `description`) VALUES
@@ -73,67 +73,67 @@ INSERT INTO `products` (`id`, `image_name`, `image_path`, `alt_text`, `descripti
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `created_at`) VALUES
-(5, 'banguncitradata80@gmail.com', '$2y$10$nC2Hk33VTVTMKbk9RSVNneM3AWsFPO/dMHyL4ElaVbZLoCPohdyA2', '2024-05-09 21:04:40');
+(7, 'banguncitradata', '$2y$10$63bx8pTIfSa9q8UkbpRYsO3vv4d3xGNkMSS4Dim8IJxO8HOHQ5qmC', '2024-05-10 06:27:46');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `cover`
+-- Indexes for table `cover`
 --
 ALTER TABLE `cover`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `products`
+-- Indexes for table `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `cover`
+-- AUTO_INCREMENT for table `cover`
 --
 ALTER TABLE `cover`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT untuk tabel `products`
+-- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

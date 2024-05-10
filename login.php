@@ -17,11 +17,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($user && password_verify($password, $user['password'])) {
-        // Jika login berhasil, kirim respons sukses dan catat log
+        session_start();
+        $_SESSION['username'] = true;
         file_put_contents($log_file, date('Y-m-d H:i:s') . " - Login sukses untuk user: $username\n", FILE_APPEND);
         echo json_encode(['success' => true]);
     } else {
-        // Jika login gagal, kirim respons gagal dan catat log
         file_put_contents($log_file, date('Y-m-d H:i:s') . " - Login gagal untuk user: $username\n", FILE_APPEND);
         echo json_encode(['success' => false, 'message' => 'Login gagal']);
     }
