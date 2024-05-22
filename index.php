@@ -14,6 +14,7 @@ require_once 'config.php'; // Menggunakan koneksi database atau konfigurasi lain
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="global/css/style.css">
+    <link rel="stylesheet" href="global/css/modal.css">
 </head>
 <body>
 <!-- Header -->
@@ -28,7 +29,10 @@ require_once 'config.php'; // Menggunakan koneksi database atau konfigurasi lain
                 <span>Purwokerto, Banyumas</span>
             </a>
             <div style="border-left: 2px solid #ccc; height: 25px; margin: 0 15px;"></div>
-            <i class="fas fa-user-circle" style="font-size: 24px;" data-bs-toggle="modal" data-bs-target="#loginModal"></i>
+            <!-- Ikon untuk membuka modal login -->
+            <a href="#" data-toggle="modal" data-target="#loginModal" style="color: inherit;">
+                <i class="fas fa-user-circle" style="font-size: 24px;"></i>
+            </a>
         </div>
     </div>
 
@@ -233,17 +237,15 @@ require_once 'config.php'; // Menggunakan koneksi database atau konfigurasi lain
 </div>
 
 <!-- Kontainer Map -->
-<div class="tentang-container">
+<div class="tentang">
     <div class="row">
-        <div class="order col-sm-6">
+        <div class="order col-lg-6">
             <h2>Dapatkan Harga Spesial <br> Sekarang Juga!</h2>
-            <div class="tombol-order">
-                <a href="https://api.whatsapp.com/send?phone=6281391188327" target="_blank" class="btn btn-success">
-                    <i class="fas fa-shopping-cart"></i> Order Now
-                </a>
-            </div>
+            <a href="https://api.whatsapp.com/send?phone=6281391188327" target="_blank" class="btn btn-success">
+                <i class="fas fa-shopping-cart"></i> Order Now
+            </a>
         </div>
-        <div class="col-sm-6">
+        <div class="col-lg-6">
             <div class="map-container" id="google-maps-section">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3427.848380031327!2d109.2290746!3d-7.4384145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e655dc1d5ba9ab5%3A0x69ec85cc3ce59b7a!2sBangun+Citra+Data!5e0!3m2!1sid!2sid!4v1632930000000"
@@ -291,36 +293,10 @@ require_once 'config.php'; // Menggunakan koneksi database atau konfigurasi lain
     </div>
 </div>
 
-<!-- Modal untuk Form Login -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="loginModalLabel">Login ke Sistem</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="loginForm" onsubmit="return false;">
-                    <div class="mb-3">
-                        <label for="username" class="form-label">Nama Pengguna</label>
-                        <input type="text" class="form-control" id="username" name="username" placeholder="Masukkan Nama Pengguna" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Kata Sandi</label>
-                        <input type="password" class="form-control" id="password" placeholder="Masukkan Kata Sandi" required>
-                    </div>
-                    <div class="text-danger" id="error-message" style="display: none;">Username atau password salah.</div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                <button type="button" class="btn btn-primary" onclick="handleLogin()">Login</button>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 <!-- JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>

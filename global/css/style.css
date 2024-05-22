@@ -7,7 +7,13 @@ html {
     margin: 0;
     padding: 0;
     font-family: Arial;
+    overflow-x: hidden;
   }
+
+  .container {
+    max-width: 100%;
+    overflow: hidden;
+}
   
   /* Header */
   .header {
@@ -22,11 +28,10 @@ html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 10px;
   }
   
   .website-name {
-    padding: 10px 0px;
+    padding: 10px 15px;
   }
   
   .website-name h1 {
@@ -36,7 +41,7 @@ html {
   
   .location-info {
     color: #0000FF; /* Warna teks dan ikon biru */
-    padding: 10px 20px; 
+    padding: 10px 15px; 
     display: flex; 
     align-items: center;
   }
@@ -65,7 +70,7 @@ html {
     align-items: center;
     color: #fff;
     text-decoration: none;
-    padding: 0 20px;
+    padding: 0 15px;
   }
   
   .header-bottom a.header-send-message:hover {
@@ -88,7 +93,7 @@ html {
   
   /* Produk */
   .product-container {
-    padding: 20px; /* Padding luar */
+    padding: 15px; /* Padding luar */
     height: 100vh; /* Tinggi vertikal kontainer */
     background-color: #070f99; /* Warna latar belakang biru */
     color: white; /* Warna teks */
@@ -137,26 +142,27 @@ html {
   }
   
   /* Gaya untuk Kontainer Map */
-  .tentang-container {
-    margin: 10px 0px;
+  .tentang {
+    margin: 15px 0;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
   }
   
-  .tentang-container .row {
-    display: flex;
-    justify-content: space-between;
+  .tentang .row {
+    width: 100%;
+    justify-content: center;
     align-items: center;
     text-align: center;
   }
   
-  .tentang-container .col-lg-6 {
+  .tentang .col-sm-6 {
     flex-direction: column; /* Membuat konten tersusun secara vertikal */
     justify-content: center; /* Menyelaraskan konten secara vertikal */
     align-items: center; /* Menyelaraskan konten secara horizontal */
   }
-  
-  .tombol-order {
-    width: auto;
-  }
+
   
   .map-container {
     border: 0;
@@ -166,18 +172,18 @@ html {
   }
   
   /* Gaya untuk elemen teks dan tombol */
-  .tentang-container h2 {
+  .tentang h2 {
     font-size: 30px; /* Ukuran font untuk heading */
     line-height: 1.5; /* Menjaga jarak antar baris */
   }
   
-  .tentang-container a {
+  .tentanga {
     color: white; /* Warna teks putih untuk tombol */
     text-decoration: none; /* Menghapus garis bawah */
     align-items: center; /* Menyelaraskan ikon dengan teks */
   }
   
-  .tentang-container .btn-success {
+  .tentang .btn-success {
     margin-top: 16px; /* Jarak atas untuk tombol (setara dengan `mt-3`) */
     padding: 10px 20px; /* Menambahkan padding untuk tombol */
   }
@@ -195,6 +201,7 @@ html {
     justify-content: space-between; /* Jarak yang konsisten antar bagian */
     align-items: flex-start; /* Konten sejajar di atas */
     color: white; /* Teks putih */
+    gap: 10px;
   }
   
   .footer-content img{
@@ -203,20 +210,20 @@ html {
   }
   
   .footer-content .logo {
-    width: 20%;
+    width: 25%;
   }
   .footer-content .about-us {
     text-align: justify;
-    width: 20%;
+    width: 30%;
   }
   .footer-content .contact-info {
-    width: 20%;
+    width: 25%;
   }
   .footer-content .online-shop {
-    width: 20%;
+    width: 15%;
   }
   .footer-content .social-media {
-    width: 20%;
+    width: 15%;
   }
   
   .footer-content a {
@@ -283,11 +290,13 @@ html {
   }
   
   @media screen and (max-width: 860px) {
-    
-    .tentang-container .row {
+    .tentang {
+      height: auto;
+    }
+    .tentang .row {
       display: block;
     }
-    .tentang-container .row .order {
+    .tentang .row .order {
       margin-bottom: 30px;
     }
     .footer-content {
@@ -385,16 +394,27 @@ html {
     }
     .tentang-container .row {
       display: column;
+      width: 100%;
+      text-align: center;
     }
     .product-container {
       height: 90vh; /* Tinggi vertikal kontainer */
     }
     .product-container h2 {
-      margin-top: 50px; /* Jarak atas */
+      margin-top: 70px; /* Jarak atas */
       margin-bottom: 20px; /* Jarak atas */
     }
     
   }
   
   
-  
+  @media screen and (max-width: 450px) {
+    .header-send-message {  
+      display: flex;
+      justify-content: center;
+      width: 50%;
+      position:absolute;
+      right: 0;
+      height: 50px;
+    }
+  }
