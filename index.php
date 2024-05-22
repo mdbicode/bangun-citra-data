@@ -293,7 +293,33 @@ require_once 'config.php'; // Menggunakan koneksi database atau konfigurasi lain
     </div>
 </div>
 
-
+<!-- Modal Login -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="email">Alamat Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Masukkan email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Kata Sandi</label>
+                        <input type="password" class="form-control" id="password" placeholder="Masukkan kata sandi">
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="submitLoginForm()">Masuk</button>
+                </form>
+                <div id="loginError" class="text-danger" style="display: none;">Email atau kata sandi salah!</div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

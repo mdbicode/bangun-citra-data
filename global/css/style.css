@@ -7,7 +7,6 @@ html {
     margin: 0;
     padding: 0;
     font-family: Arial;
-    overflow-x: hidden;
   }
 
   .container {
@@ -157,7 +156,7 @@ html {
     text-align: center;
   }
   
-  .tentang .col-sm-6 {
+  .tentang .col-lg-6 {
     flex-direction: column; /* Membuat konten tersusun secara vertikal */
     justify-content: center; /* Menyelaraskan konten secara vertikal */
     align-items: center; /* Menyelaraskan konten secara horizontal */
@@ -177,7 +176,7 @@ html {
     line-height: 1.5; /* Menjaga jarak antar baris */
   }
   
-  .tentanga {
+  .tentang a {
     color: white; /* Warna teks putih untuk tombol */
     text-decoration: none; /* Menghapus garis bawah */
     align-items: center; /* Menyelaraskan ikon dengan teks */
