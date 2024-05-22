@@ -1,7 +1,7 @@
 <?php
 include '../config.php'; // Menghubungkan dengan database
 
-$username = 'banguncitradata80@gmail.com'; // Nama pengguna yang akan dimasukkan
+$username = 'banguncitradata'; // Nama pengguna yang akan dimasukkan
 
 // Hashing password menggunakan bcrypt
 $plain_password = 'bcdcompany'; // Kata sandi asli

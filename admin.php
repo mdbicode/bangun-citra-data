@@ -1,4 +1,17 @@
 <?php
+session_start();
+
+// Fungsi untuk memeriksa status login
+function check_login_status() {
+    if (!isset($_SESSION['username'])) {
+        header('Location: index.php');
+        exit();
+    }
+}
+
+check_login_status();
+
+
 require_once 'models/user.php'; // Koneksi ke database dan fungsi CRUD
 ?>
 
