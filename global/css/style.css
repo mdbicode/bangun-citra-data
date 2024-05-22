@@ -1,232 +1,400 @@
 html {
     scroll-behavior: smooth;
-}
-
-body {
+  }
+  
+  body {
     background-color: #fff;
     margin: 0;
     padding: 0;
-    
     font-family: Arial;
-}
-
-/* Header */
-.header {
+  }
+  
+  /* Header */
+  .header {
     position: sticky;
     top: 0;
     background-color: #fff; /* Warna latar belakang putih */
     z-index: 1000; /* Menjaga agar tetap di atas elemen lainnya */
-}
-
-/* Header Top */
-.header-top {
+  }
+  
+  /* Header Top */
+  .header-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.website-name {
-    padding: 10px 20px;
-}
-
-.website-name h1 {
+    padding-left: 10px;
+  }
+  
+  .website-name {
+    padding: 10px 0px;
+  }
+  
+  .website-name h1 {
     color: black; /* Warna teks hitam */
     font-weight: bold;
-}
-
-.location-info {
-    color: blue; /* Warna teks dan ikon biru */
+  }
+  
+  .location-info {
+    color: #0000FF; /* Warna teks dan ikon biru */
     padding: 10px 20px; 
     display: flex; 
     align-items: center;
-}
-
-/* Header Bottom */
-.header-bottom {
+  }
+  
+  .location-info a:hover {
+    color: #0000b2;
+  }
+  
+  .location-info i:hover {
+    cursor: pointer;
+  }
+  
+  /* Header Bottom */
+  .header-bottom {
     display: flex;
     background-color: #070f99;
     justify-content: space-between;
-    align-items: center;
-}
+    /* align-items: center; */
+    align-items: top;
+  }
 
-.header-menu {
-    display: flex;
-    padding-left: 20px;
-    gap: 20px;
-}
-
-.header-menu a {
-    text-decoration: none;
-    color: white; /* Teks putih */
-    font-weight: bold; /* Memberi sedikit penekanan pada teks */
-}
-
-/* Garis bawah pada hover */
-.header-menu a:hover {
-    border-bottom: 1px solid white; /* Ketebalan dan warna garis bawah saat hover */
-    text-decoration-color: white; /* Warna garis bawah putih */
-}
-
-.header-send-message {
-    padding: 10px 20px; 
-    background-color: red; 
+  
+  .header-bottom a.header-send-message {
+    background-color: #FF0000; 
     display: flex; 
     align-items: center;
-}
-
-/* Tombol WhatsApp di header */
-.header-send-message a {
-    color: white; /* Warna teks putih */
+    color: #fff;
     text-decoration: none;
-}
-
-.header-send-message i {
-    color: white; /* Warna ikon putih */
-}
-
-/* Carousel */
-.carousel-item img {
+    padding: 0 20px;
+  }
+  
+  .header-bottom a.header-send-message:hover {
+    color: #fff;
+    background-color: #cc0000;
+    text-decoration: none;
+  }
+  
+  
+  /* Carousel */
+  .carousel-item img {
     width: 100%;
-    height: auto;
-}
-
-.carousel-inner .carousel-item {
+    height: 80vh;
+    overflow: hidden;
+  }
+  
+  .carousel-inner .carousel-item {
     transition: transform 1s ease-in-out; /* Menambah transisi yang lebih halus */
-} 
-
-/* Produk */
-.product-container {
+  } 
+  
+  /* Produk */
+  .product-container {
     padding: 20px; /* Padding luar */
     height: 100vh; /* Tinggi vertikal kontainer */
     background-color: #070f99; /* Warna latar belakang biru */
     color: white; /* Warna teks */
     text-align: center; /* Teks rata tengah */
-}
-
-.product-container h2 {
-    margin-top: 100px; /* Jarak atas */
+  }
+  
+  .product-container h2 {
+    margin-top: 50px; /* Jarak atas */
     margin-bottom: 50px; /* Jarak bawah */
-}
-
-.product-container .carousel-inner {
+  }
+  
+  .product-container .row {
+    overflow: hidden;
+  }
+  
+  .product-container .carousel-inner {
     text-align: center; /* Teks rata tengah */
-    margin-top: 100px;
-}
-
-.product-container .carousel-item {
-    padding: 10px 0; /* Jarak dalam setiap item */
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-    position: absolute; /* Pastikan posisi absolute untuk kontrol */
-    top: 50%; /* Posisikan kontrol di tengah secara vertikal */
-    transform: translateY(260%); /* Geser ke bawah agar kontrol benar-benar di tengah */
-    background-color: transparent; /* Warna latar belakang transparan */
-    border: none; /* Tanpa batas */
-}
-
-.carousel-control-prev {
-    left: -10px; /* Geser kontrol prev ke kiri untuk tampil di luar kontainer */
-}
-
-.carousel-control-next {
-    right: -10px; /* Geser kontrol next ke kanan untuk tampil di luar kontainer */
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    color: white; /* Warna ikon kontrol */
-}
-
-/* Gaya untuk Kontainer Map */
-.tentang-container {
-    margin: 10px 0px; /* Jarak di bagian atas (setara dengan kelas Bootstrap `mt-4`) */ /* Jarak di bagian bawah (setara dengan kelas Bootstrap `mt-4`) */
-}
-
-.tentang-container .row {
+    margin-top: 50px;
+  }
+  
+  .carousel-control {
+    background: none !important;
+    color: #fff; /* Warna panah */
+    width: 5%; /* Lebar kontrol */
+  }
+  .carousel-control.left, .carousel-control.right {
+    background-image: none;
+    top: 0;
+    bottom: 0;
+    width: auto;
+    padding-top: 0;
+    color: #fff;
+  }
+  .carousel-control.left {
+    left: 10px;
+  }
+  .carousel-control.right {
+    right: 10px;
+  }
+  
+  #productCarousel2 {
+    display: none;
+  }
+  #productCarousel3 {
+    display: none;
+  }
+  
+  /* Gaya untuk Kontainer Map */
+  .tentang-container {
+    margin: 10px 0px;
+  }
+  
+  .tentang-container .row {
     display: flex;
     justify-content: space-between;
     align-items: center;
     text-align: center;
-}
-
-.tentang-container .col-lg-6 {
+  }
+  
+  .tentang-container .col-lg-6 {
     flex-direction: column; /* Membuat konten tersusun secara vertikal */
     justify-content: center; /* Menyelaraskan konten secara vertikal */
     align-items: center; /* Menyelaraskan konten secara horizontal */
-}
-
-.tombol-order {
+  }
+  
+  .tombol-order {
     width: auto;
-}
-
-.map-container {
+  }
+  
+  .map-container {
     border: 0;
     width: 100%;
     height: 300px;
-    /* overflow: hidden; Menghindari konten meluap dari kontainer */
-}
-
-/* Gaya untuk elemen teks dan tombol */
-.tentang-container h2 {
+    overflow: hidden; /*Menghindari konten meluap dari kontainer*/
+  }
+  
+  /* Gaya untuk elemen teks dan tombol */
+  .tentang-container h2 {
     font-size: 30px; /* Ukuran font untuk heading */
     line-height: 1.5; /* Menjaga jarak antar baris */
-}
-
-.tentang-container a {
+  }
+  
+  .tentang-container a {
     color: white; /* Warna teks putih untuk tombol */
     text-decoration: none; /* Menghapus garis bawah */
     align-items: center; /* Menyelaraskan ikon dengan teks */
-}
-
-.tentang-container .btn-success {
+  }
+  
+  .tentang-container .btn-success {
     margin-top: 16px; /* Jarak atas untuk tombol (setara dengan `mt-3`) */
     padding: 10px 20px; /* Menambahkan padding untuk tombol */
-}
-
-
-/* Footer */
-.footer {
+  }
+  
+  
+  /* Footer */
+  .footer {
     background-color: black; /* Latar belakang hitam */
     padding: 30px 20px;
     min-height: 30vh;
-}
-
-.footer-content {
+  }
+  
+  .footer-content {
     display: flex;
     justify-content: space-between; /* Jarak yang konsisten antar bagian */
     align-items: flex-start; /* Konten sejajar di atas */
     color: white; /* Teks putih */
-}
-
-.footer-logo {
-    width: 250px; 
-    height: 100px;
-}
-
-.footer-content a {
+  }
+  
+  .footer-content img{
+    max-width: 250px; 
+    max-height: 100px;
+  }
+  
+  .footer-content .logo {
+    width: 20%;
+  }
+  .footer-content .about-us {
+    text-align: justify;
+    width: 20%;
+  }
+  .footer-content .contact-info {
+    width: 20%;
+  }
+  .footer-content .online-shop {
+    width: 20%;
+  }
+  .footer-content .social-media {
+    width: 20%;
+  }
+  
+  .footer-content a {
     text-decoration: none;
     color: white; /* Teks putih */
     /*font-weight: bold;  Memberi sedikit penekanan pada teks */
-}
-
-/* Garis bawah pada hover */
-.footer-content a:hover {
+  }
+  
+  /* Garis bawah pada hover */
+  .footer-content a:hover {
     text-decoration: underline; /* Garis bawah pada hover */
     text-decoration-color: white; /* Warna garis bawah putih */
-}
-
-.footer-content > div {
+  }
+  
+  .footer-content > div {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin: 0 15px;
-}
-
-.footer-license {
+  }
+  
+  .footer-license {
     text-align: center;
     padding-top: 30px;
     font-size: 0.8em;
     color: white; /* Teks putih */
-}
+  }
+  
+  .topnav {
+    overflow: hidden;
+    background-color: transparent;
+    display: block;
+  }
+  
+  .topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .topnav .icon {
+    display: none;
+  }
+  
+  .topnav a:hover {
+    background-color: #0914ca;
+    color: white;
+  }
+  
+  @media screen and (max-width: 1000px) {
+    .product-container #productCarousel {
+      display: none;
+    }
+    .product-container #productCarousel2 {
+      display: contents;
+    }
+    .product-container #productCarousel3 {
+      display: none;
+    }
+  }
+  
+  @media screen and (max-width: 860px) {
+    
+    .tentang-container .row {
+      display: block;
+    }
+    .tentang-container .row .order {
+      margin-bottom: 30px;
+    }
+    .footer-content {
+      display: block;
+      justify-content: space-around;
+    }
+    .footer-content .logo {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .footer .about-us {
+      text-align: justify;
+      margin-top: 15px;
+      padding-right: 25px;
+      width: 100%;
+    }
+    .footer .contact-info {
+      margin-top: 10px;
+      width: 100%;
+    }
+    .footer .online-shop {
+      margin-top: 15px;
+      width: 100%;
+    }
+    .footer .social-media {
+      margin-top: 15px;
+      width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 770px) {
+    .product-container #productCarousel {
+      display: none;
+    }
+    .product-container #productCarousel2 {
+      display: none;
+    }
+    .product-container #productCarousel3 {
+      display: contents;
+    }
+  }
+  
+  @media screen and (max-width: 620px) {
+    .to-map {
+      display: none;
+    }
+  }
+  
+  @media screen and (max-width: 550px) {
+    .topnav a {
+      display: none;
+    }
+    .topnav a.icon {
+      float: left;
+      display: block;
+    }
+    .website-name {
+      font-size: 5px;
+      padding: 2px 8px;
+    }
+    .topnav.responsive {position: relative;}
+    .topnav.responsive .icon {
+      position: relative;
+      left: 0;
+      top: 0;
+    }
+    .topnav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+    .topnav.responsive {float: none;}
+    .topnav.responsive {position: relative;}
+    .topnav.responsive {
+      display: block;
+      width: 100%;
+      text-align: left;
+    }
+    .header-send-message {  
+      display: flex;
+      justify-content: center;
+      width: 35%;
+      position:absolute;
+      right: 0;
+      height: 49px;
+    }
+    .product-container #productCarousel {
+      display: none;
+    }
+    .product-container #productCarousel2 {
+      display: none;
+    }
+    .product-container #productCarousel3 {
+      display: contents;
+    }
+    .tentang-container .row {
+      display: column;
+    }
+    .product-container {
+      height: 90vh; /* Tinggi vertikal kontainer */
+    }
+    .product-container h2 {
+      margin-top: 50px; /* Jarak atas */
+      margin-bottom: 20px; /* Jarak atas */
+    }
+    
+  }
+  
+  
+  
